@@ -1,5 +1,9 @@
 version: 8
-name: Otenki Custom
+name: otenki
+center:
+  - 37.57
+  - 138.15
+zoom: 4.36
 sources:
   geolonia-prefectures:
     type: vector
