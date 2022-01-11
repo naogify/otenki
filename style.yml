@@ -1,0 +1,22 @@
+version: 8
+name: otenki
+center:
+  - 138.551
+  - 36.416
+zoom: 6
+sources:
+  geolonia-prefectures:
+    type: vector
+    url: https://cdn.geolonia.com/tiles/japanese-prefectures.json
+  dem:
+    type: raster-dem
+    url: https://tileserver.geolonia.com/gsi-dem/tiles.json
+sprite: https://sprites.geolonia.com/basic
+glyphs: https://glyphs.geolonia.com/{fontstack}/{range}.pbf
+layers:
+  - !!inc/file layers/background.yml
+  - !!inc/file layers/prefectures.yml
+  - !!inc/file layers/prefectures-overlay.yml
+  - !!inc/file layers/hillshading.yml
+  - !!inc/file layers/prefectures-line-blur.yml
+  - !!inc/file layers/prefectures-line.yml

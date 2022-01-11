@@ -1,0 +1,6 @@
+id: prefectures-overlay
+type: fill
+source: geolonia-prefectures
+source-layer: prefectures
+paint:
+  fill-color: transparent

@@ -1,0 +1,21 @@
+id: prefectures-line-blur
+type: line
+source: geolonia-prefectures
+source-layer: prefectures
+layout:
+  line-join: round
+paint:
+  line-color: "#000000"
+  line-blur: 5
+  line-translate:
+    stops:
+      - - 5
+        - [0.5, 0.5]
+      - - 16
+        - [8, 8]
+  line-width:
+    stops:
+      - - 5
+        - 0.5
+      - - 16
+        - 18

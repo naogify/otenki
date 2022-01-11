@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おてんき</title>
+    <style>
+        html, body, #map
+        {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+  <div
+    id="map"
+    data-geolocate-control="on"
+    data-lat="34.454"
+    data-lng="135.53"
+    data-zoom="7"
+    data-marker="off"
+    data-style="./style.json"
+    data-gesture-handling="off"
+  ></div>
+
+  <script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=YOUR-API-KEY"></script>
+  <script>
+    const map = new geolonia.Map('#map')
+
+    map.on('load', () => {
+      map.on('mousemove', 'prefectures-overlay', (e) => {
+        const code = e.features[0].properties.code
+        map.setPaintProperty('prefectures-overlay', 'fill-color', ['match', ["get", "code"], code, 'rgba(255, 0, 0, 0.5)' , 'transparent'])
+      });
+      map.on('mouseleave', 'prefectures-overlay', (e) => {
+        map.setPaintProperty('prefectures-overlay', 'fill-color', 'transparent')
+      });
+    })
+</script>
+</body>
+</html>

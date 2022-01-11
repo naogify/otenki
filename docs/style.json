@@ -1,0 +1,124 @@
+{
+  "version": 8,
+  "name": "otenki",
+  "center": [
+    138.551,
+    36.416
+  ],
+  "zoom": 6,
+  "sources": {
+    "geolonia-prefectures": {
+      "type": "vector",
+      "url": "https://cdn.geolonia.com/tiles/japanese-prefectures.json"
+    },
+    "dem": {
+      "type": "raster-dem",
+      "url": "https://tileserver.geolonia.com/gsi-dem/tiles.json"
+    }
+  },
+  "sprite": "https://sprites.geolonia.com/basic",
+  "glyphs": "https://glyphs.geolonia.com/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "#143E87"
+      }
+    },
+    {
+      "id": "prefectures",
+      "type": "fill",
+      "source": "geolonia-prefectures",
+      "source-layer": "prefectures",
+      "paint": {
+        "fill-color": "#248733"
+      }
+    },
+    {
+      "id": "prefectures-overlay",
+      "type": "fill",
+      "source": "geolonia-prefectures",
+      "source-layer": "prefectures",
+      "paint": {
+        "fill-color": "transparent"
+      }
+    },
+    {
+      "id": "hillshading",
+      "source": "dem",
+      "type": "hillshade",
+      "paint": {
+        "hillshade-exaggeration": 0.1,
+        "hillshade-shadow-color": "#000000"
+      }
+    },
+    {
+      "id": "prefectures-line-blur",
+      "type": "line",
+      "source": "geolonia-prefectures",
+      "source-layer": "prefectures",
+      "layout": {
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#000000",
+        "line-blur": 5,
+        "line-translate": {
+          "stops": [
+            [
+              5,
+              [
+                0.5,
+                0.5
+              ]
+            ],
+            [
+              16,
+              [
+                8,
+                8
+              ]
+            ]
+          ]
+        },
+        "line-width": {
+          "stops": [
+            [
+              5,
+              0.5
+            ],
+            [
+              16,
+              18
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "prefectures-line",
+      "type": "line",
+      "source": "geolonia-prefectures",
+      "source-layer": "prefectures",
+      "layout": {
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#FFFFFF",
+        "line-width": {
+          "stops": [
+            [
+              5,
+              0.1
+            ],
+            [
+              16,
+              14
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}

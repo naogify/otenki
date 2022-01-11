@@ -1,0 +1,14 @@
+id: prefectures-line
+type: line
+source: geolonia-prefectures
+source-layer: prefectures
+layout:
+  line-join: round
+paint:
+  line-color: "#FFFFFF"
+  line-width:
+    stops:
+      - - 5
+        - 0.1
+      - - 16
+        - 14
